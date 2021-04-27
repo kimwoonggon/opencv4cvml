@@ -44,7 +44,7 @@ void movie_transition()
 		return;
 	}
 
-	// µÎ µ¿¿µ»ó ÀÌ¾î ºÙÀÌ±â
+	// ë‘ ë™ì˜ìƒ ì´ì–´ ë¶™ì´ê¸°
 	Mat frame1;
 	Mat frame2;
 	
@@ -59,7 +59,7 @@ void movie_transition()
 			break;
 
 	}
-	// ÇÕ¼º±¸°£
+	// í•©ì„±êµ¬ê°„
 	for (int i = 1; i < effect_frames; i++) {
 		cap1 >> frame1;
 		cap2 >> frame2;
@@ -73,13 +73,9 @@ void movie_transition()
 
 		frame2(frame2_roi).copyTo(frame(frame2_roi));
 		frame1(frame1_roi).copyTo(frame(frame1_roi));
-		//Mat testframe2 = frame2(frame2_roi);
-		//frame2(Range::all(), Range(0,dx)).copyTo(frame(Range::all(), Range(0,dx)));
-		//frame1(Range(0,h),Range(dx, w)).copyTo(frame(Range(0,h), Range(dx,w)));
 		
 		outputVideo << frame;
 		imshow("frame", frame);
-		//imshow("testframe2", testframe2);
 		if (waitKey(delay) == 27)
 			break;
 	}
